@@ -1,0 +1,10 @@
+# Stage 1 — Minimal backend dependencies
+#
+# Pin exact minor versions for reproducibility.
+# Run:  pip install -r requirements.txt
+
+fastapi==0.115.12           # Web framework — includes Starlette and routing
+uvicorn[standard]==0.34.0   # ASGI server (includes websockets + httptools)
+pydantic-settings==2.9.1    # Settings management via environment variables
+python-dotenv==1.1.0        # Loads .env files into os.environ
+aiofiles==24.1.0            # Async file I/O — required by StaticFiles to serve the React build
