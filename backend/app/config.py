@@ -15,6 +15,8 @@ class Settings(BaseSettings):
     app_name: str = "NEXORA AI — Skin Health Analyzer"
     app_version: str = "0.1.0"
     debug: bool = False
+    server_host: str = "0.0.0.0"
+    server_port: int = 8000
 
     # ── Static frontend ───────────────────────────────────────────────────────
     # Absolute or relative (to working directory) path to the Vite build output.
@@ -27,6 +29,13 @@ class Settings(BaseSettings):
     # headers are NOT required. This value is kept so the local dev workflow
     # (Vite :5173 + FastAPI :8000 with Vite proxy) continues to work unchanged.
     allowed_origins: str = "http://localhost:5173"
+
+    # ── Ollama Local LLM ──────────────────────────────────────────────────────
+    ollama_base_url: str = "http://localhost:11434"
+    ollama_model: str = "medgemma:27b"
+    ollama_timeout: float = 120.0
+    ollama_num_ctx: int = 4096
+    max_upload_size_mb: int = 10
 
     # ── Pydantic Settings config ───────────────────────────────────────────────
     model_config = SettingsConfigDict(
